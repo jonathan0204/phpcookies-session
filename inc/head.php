@@ -1,3 +1,6 @@
+<?php
+session_start()
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,20 +36,33 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
+          <?php
+          if (!empty ($_SESSION['name'])){
+          ?>
+
+           
           <li><a href="#">Chocolates chips</a></li>
           <li><a href="#">Nuts</a></li>
           <li><a href="#">Gluten full</a></li>
           <li>
             <a href="/cart.php" class="btn btn-warning navbar-btn">
+           
               <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
               Cart
             </a>
+            <li><a href="logout.php" >logout </a></li>
           </li>
+          <?php } ?>
+          <?php
+          if (empty ($_SESSION['name'])){
+          ?>
+          <a href="/login.php"> <input type="button" value="login"> </a>
+          <?php } ?>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
   <div class="container-fluid text-right">
-    <strong>Hello Wilder !</strong>
+    <strong>hello <?php if (isset($_SESSION['name'])) echo $_SESSION['name'];?></strong>
   </div>
 </header>

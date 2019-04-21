@@ -1,5 +1,6 @@
+<?php require 'inc/head.php'; ?>
 <?php 
-session_start();
+
 if (!isset($_SESSION['name'])) {
 header("location:login.php");
 }
@@ -9,10 +10,10 @@ $_SESSION['panier'] = [];
 }
 
 
-if (isset($_GET['add_to_cart']) && (($_GET['add_to_cart']) == 46 )) {
+if (isset($_GET['add_to_cart']) && ($_GET['add_to_cart']) == 46) {
  array_push($_SESSION['panier'], "Pecan nuts");
 }
-elseif (isset($_GET['add_to_cart']) && (($_GET['add_to_cart']) == 36 )) {
+elseif (isset($_GET['add_to_cart']) && ($_GET['add_to_cart']) == 36 ) {
  array_push($_SESSION['panier'], "Chocolate chips");
 }
 elseif (isset($_GET['add_to_cart']) && (($_GET['add_to_cart']) == 58 )) {
@@ -21,11 +22,11 @@ elseif (isset($_GET['add_to_cart']) && (($_GET['add_to_cart']) == 58 )) {
 elseif (isset($_GET['add_to_cart']) && (($_GET['add_to_cart']) == 32 )) {
  array_push($_SESSION['panier'], "M&M's&copy; cookies");
 }
+print_r($_SESSION['panier']);
 
-var_dump($_SESSION['panier']);
 ?>
 
-<?php require 'inc/head.php'; ?>
+
 <section class="cookies container-fluid">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
